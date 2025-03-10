@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Special 3D Experience</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .popup-container {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup {
+            background: rgba(0, 0, 0, 0.5);
+            width: 60%;
+            height: 60%;
+            border-radius: 10px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .balloon {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: balloon-animation 3s infinite;
+        }
+
+        .balloon img {
+            width: 80px;
+            height: 120px;
+        }
+
+        @keyframes balloon-animation {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-150px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        .message {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .gift-image {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .girlfriend-pictures {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            animation: fly-animation 5s infinite;
+        }
+
+        .girlfriend-pictures img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        @keyframes fly-animation {
+            0% {
+                transform: translateX(0) rotate(0deg);
+            }
+            50% {
+                transform: translateX(200px) rotate(180deg);
+            }
+            100% {
+                transform: translateX(0) rotate(360deg);
+            }
+        }
+
+        .close-btn {
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .close-btn:hover {
+            background-color: #ff2a2a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Popup (Eid Mubarak with Balloons) -->
+    <div class="popup-container" id="eidPopup">
+        <div class="popup">
+            <div class="balloon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Blue_balloon.png" alt="Balloon">
+            </div>
+            <div class="message">
+                Eid Mubarak!
+            </div>
+            <button class="close-btn" onclick="showGiftPopup()">Next</button>
+        </div>
+    </div>
+
+    <!-- Second Popup (Gift Basket) -->
+    <div class="popup-container" id="giftPopup">
+        <div class="popup">
+            <img src="https://www.pngall.com/wp-content/uploads/2017/05/Gift-Basket-PNG-Image.png" alt="Gift Basket" class="gift-image">
+            <div class="message">
+                A beautiful gift for you!
+            </div>
+            <button class="close-btn" onclick="showGirlfriendPopup()">Next</button>
+        </div>
+    </div>
+
+    <!-- Third Popup (Girlfriend Pictures) -->
+    <div class="popup-container" id="girlfriendPopup">
+        <div class="popup">
+            <div class="girlfriend-pictures">
+                <img src="https://placekitten.com/100/100" alt="Girlfriend Picture 1">
+                <img src="https://placekitten.com/100/100" alt="Girlfriend Picture 2">
+                <img src="https://placekitten.com/100/100" alt="Girlfriend Picture 3">
+            </div>
+            <div class="message">
+                I love you! You are my world. Special prayers for you. 💖
+            </div>
+            <button class="close-btn" onclick="closeAllPopups()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Show the first popup when the page loads
+        window.onload = function () {
+            document.getElementById('eidPopup').style.display = 'flex';
+        };
+
+        function showGiftPopup() {
+            document.getElementById('eidPopup').style.display = 'none';
+            document.getElementById('giftPopup').style.display = 'flex';
+        }
+
+        function showGirlfriendPopup() {
+            document.getElementById('giftPopup').style.display = 'none';
+            document.getElementById('girlfriendPopup').style.display = 'flex';
+        }
+
+        function closeAllPopups() {
+            document.getElementById('girlfriendPopup').style.display = 'none';
+            alert("Eid Mubarak and prayers for your happiness!");
+        }
+    </script>
+
+</body>
+</html>
